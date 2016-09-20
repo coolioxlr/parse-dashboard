@@ -28,7 +28,7 @@ program.option('--sslCert [sslCert]', 'the path to the SSL certificate.');
 program.parse(process.argv);
 
 const host = program.host || process.env.HOST || '0.0.0.0';
-const port = program.port || process.env.PORT || 4040;
+const port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080;
 const mountPath = program.mountPath || process.env.MOUNT_PATH || '/';
 const allowInsecureHTTP = program.allowInsecureHTTP || process.env.PARSE_DASHBOARD_ALLOW_INSECURE_HTTP;
 
